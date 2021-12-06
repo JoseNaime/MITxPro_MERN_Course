@@ -1,0 +1,87 @@
+.todo-list {
+	position  : absolute;
+	top       : 25%;
+	left      : 50%;
+	width     : 350px;
+	margin    : auto;
+	transform : translateX(-50%);
+}
+
+.todo-list h1 {
+	margin-bottom : 35px;
+	text-align    : center;
+}
+
+.todo-item-container {
+	display         : flex;
+	align-items     : center;
+	justify-content : space-between;
+	width           : 350px;
+}
+
+.todo-item-container:nth-child(even) {
+	background : #E5E5E5;
+}
+
+.todo-item {
+	display     : flex;
+	align-items : center;
+	gap         : 15px;
+}
+
+.todo-form {
+	display         : flex;
+	justify-content : space-between;
+	height          : 35px;
+	margin          : auto;
+	margin-bottom   : 15px;
+}
+
+.todo-form * {
+	height : 100%;
+}
+
+input {
+	margin  : 0;
+	padding : 0;
+	border  : none;
+}
+.todo-form input[type='text'] {
+	width        : calc(100% - 65px);
+	padding-left : 15px;
+	transition   : all 0.5s;
+	border-left  : solid dodgerblue 1px;
+	outline      : none;
+	
+}
+
+.todo-form input[type='text']:focus {
+	width        : calc(100% - 70px);
+	border-width : 5px;
+}
+
+.todo-form input[type='submit'] {
+	width      : 50px;
+	transition : all 0.5s;
+	color      : black;
+}
+
+.todo-form input[type='submit'].active {
+	color            : white;
+	background-color : dodgerblue;
+}
+
+.delete-btn {
+	width            : 50px;
+	height           : 50px;
+	padding          : 0;
+	transition       : all 0.5s;
+	color            : black;
+	border           : none;
+	background-color : transparent;
+}
+
+.delete-btn:hover {
+	color            : white;
+	background-color : #E80F0F;
+}
