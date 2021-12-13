@@ -1,0 +1,66 @@
+#title {
+	margin-top : 100px;
+}
+
+form {
+	position      : absolute;
+	top           : 50%;
+	left          : 50%;
+	width         : 300px;
+	margin        : auto;
+	padding       : 3rem;
+	transform     : translate(-50%, -50%);
+	border-radius : 15px;
+	box-shadow    : 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+select {
+	width : 100%;
+}
+
+.app-container {
+	width      : 500px;
+	margin     : auto;
+	text-align : center;
+}
+
+.total-balance {
+	margin-top : 50px;
+}
+
+.flex-horizontal {
+	display        : flex;
+	flex-direction : column;
+}
+
+input {
+	transition : all 0.5s;
+	border     : none;
+}
+
+input[type='number'] {
+	font-size     : 1.5rem;
+	height        : 25px;
+	margin        : 30px 0;
+	border-bottom : solid 1px dimgray;
+}
+
+input[type='submit'] {
+	height        : 30px;
+	margin-top    : 10px;
+	color         : white;
+	border-radius : 15px;
+}
+
+input[disabled] {
+	opacity          : 0.5;
+	background-color : #575755;
+}
+
+.deposit {
+	background-color : #8DBB2B;
+}
+
+.cash-back {
+	background-color : #C94241;
+}
