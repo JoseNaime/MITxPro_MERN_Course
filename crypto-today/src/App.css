@@ -1,0 +1,121 @@
+header{
+	margin-top: 100px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+ul {
+	margin  : 0;
+	padding : 0;
+}
+
+#app {
+	width  : 100%;
+	height : 100%;
+}
+
+
+
+#pagination {
+	display        : flex;
+	flex-direction : column;
+	gap            : 50px;
+}
+
+#crypto-list-container {
+	width   : 600px;
+	margin  : auto;
+	padding : 0;
+}
+
+#crypto-list-container .update-date{
+	float: right;
+	font-size : 10px;
+	margin-bottom: 10px;
+	font-weight : bold;
+	color: #444444
+}
+
+.crypto-list-item {
+	display         : flex;
+	justify-content : space-between;
+	width           : 100%;
+}
+
+.crypto-list-item:nth-child(even) {
+	background-color : #F1F1F1;
+}
+
+.crypto-list-item__info {
+	display         : flex;
+	align-items     : center;
+	justify-content : center;
+	margin-left     : 15px;
+	gap             : 5px;
+}
+
+.crypto-list-item__info .rank {
+	font-size : 0.8rem;
+	width     : 25px;
+	opacity   : 0.5;
+}
+
+.crypto-list-item__info .symbol {
+	width : 60px;
+}
+
+.crypto-list-item__info .name{
+	width : 100px;
+}
+
+.crypto-list-item__info > p, h3 {
+	margin : 0;
+}
+
+.crypto-list-item__change {
+	margin-right : 15px;
+	transition   : all 0.5s;
+	color        : #85B71A;
+}
+
+.crypto-list-item__change.fall {
+	color : #E13836;
+}
+
+.pagination-button-container {
+	display               : grid;
+	justify-content       : space-between;
+	margin                : auto;
+	padding               : 0;
+	grid-template-columns : 1fr 4fr 1fr;
+}
+
+.pagination-button-container > div {
+	display : flex;
+}
+
+.pagination-button-container .left {
+	align-items     : start;
+	justify-content : start;
+}
+
+.pagination-button-container .center {
+	align-items     : center;
+	justify-content : center;
+}
+
+.pagination-button-container .right {
+	align-items     : end;
+	justify-content : end;
+}
+
+.pagination-button {
+	border: none;
+	padding: 15px;
+	transition: all 0.5s
+}
+
+.pagination-button.active {
+	color: white;
+	background-color : #3E6DF5;
+}
