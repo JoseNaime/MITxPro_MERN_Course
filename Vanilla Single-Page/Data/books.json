@@ -1,0 +1,32 @@
+{
+  "books": [
+    {
+      "image": "",
+      "title": "The Hobbit",
+      "description": "I am a very simple book. I am only one sentence long.",
+      "releaseDate": "September 21, 1937",
+      "author": "J.R.R. Tolkien"
+    },
+    {
+      "image": "",
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "description": "I am a very simple book. I am only one sentence long.",
+      "releaseDate": "September 21, 1937",
+      "author": "J.K. Rowling"
+    },
+    {
+      "image": "",
+      "title": "The Catcher in the Rye",
+      "description": "I am a very simple book. I am only one sentence long.",
+      "releaseDate": "September 21, 1937",
+      "author": "J.D. Salinger"
+    },
+    {
+      "image": "",
+      "title": "Lord of the Flies",
+      "description": "I am a very simple book. I am only one sentence long.",
+      "releaseDate": "September 21, 1937",
+      "author": "William Golding"
+    }
+  ]
+}
