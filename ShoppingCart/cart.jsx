@@ -1,9 +1,9 @@
 // simulate getting products from DataBase
 const products = [
-  { name: "Apples_:", country: "Italy", cost: 3, instock: 10 },
-  { name: "Oranges:", country: "Spain", cost: 4, instock: 3 },
-  { name: "Beans__:", country: "USA", cost: 2, instock: 5 },
-  { name: "Cabbage:", country: "USA", cost: 1, instock: 8 },
+  { Name: "Apples", Country: "Italy", Cost: 3, InStock: 10 },
+  { Name: "Oranges", Country: "Spain", Cost: 4, InStock: 3 },
+  { Name: "Beans", Country: "USA", Cost: 2, InStock: 5 },
+  { Name: "Cabbage", Country: "USA", Cost: 1, InStock: 8 },
 ];
 //=========Cart=============
 const Cart = (props) => {
@@ -23,6 +23,7 @@ const useDataApi = (initialUrl, initialData) => {
     isError: false,
     data: initialData,
   });
+
   console.log(`useDataApi called`);
   useEffect(() => {
     console.log("useEffect Called");
@@ -90,9 +91,9 @@ const Products = (props) => {
   } = ReactBootstrap;
   //  Fetch Data
   const { Fragment, useState, useEffect, useReducer } = React;
-  const [query, setQuery] = useState("http://localhost:1337/products");
+  const [query, setQuery] = useState("http://localhost:1337/api/products");
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
-    "http://localhost:1337/products",
+    "http://localhost:1337/api/products",
     {
       data: [],
     }
@@ -120,9 +121,9 @@ const Products = (props) => {
       <li key={index}>
         <Image src={photos[index % 4]} width={70} roundedCircle></Image>
         <Button variant="primary" size="large">
-          {item.name}:{item.cost}
+          {item.Name}:{item.Cost}
         </Button>
-        <input name={item.name} type="submit" onClick={addToCart}></input>
+        <input name={item.Name} type="submit" onClick={addToCart}></input>
       </li>
     );
   });
@@ -131,7 +132,7 @@ const Products = (props) => {
       <Card key={index}>
         <Card.Header>
           <Accordion.Toggle as={Button} variant="link" eventKey={1 + index}>
-            {item.name}
+            {item.Name}
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse
@@ -139,7 +140,7 @@ const Products = (props) => {
           eventKey={1 + index}
         >
           <Card.Body>
-            $ {item.cost} from {item.country}
+            $ {item.Cost} from {item.Country}
           </Card.Body>
         </Accordion.Collapse>
       </Card>
@@ -166,7 +167,19 @@ const Products = (props) => {
     return newTotal;
   };
   // TODO: implement the restockProducts function
-  const restockProducts = (url) => {};
+  const restockProducts = (url) => {
+    // doFetch()
+    // setItems()
+    console.log(url)
+    doFetch(url);
+    const itemsData = data.data.map((item, index) => {
+      return {
+        ...item.attributes,
+        id: index,
+      };
+    })
+    setItems(itemsData);
+  };
 
   return (
     <Container>
@@ -188,7 +201,7 @@ const Products = (props) => {
       <Row>
         <form
           onSubmit={(event) => {
-            restockProducts(`http://localhost:1337/${query}`);
+            restockProducts(`${query}`);
             console.log(`Restock called on ${query}`);
             event.preventDefault();
           }}
