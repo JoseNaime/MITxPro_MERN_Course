@@ -6,6 +6,7 @@ const initialState = {
 
 function CreateAccountForm({setCreatingAccount, userContext, setUserContext}) {
     const [state, dispatch] = useReducer(reducer, initialState);
+    const [submitIsDisabled, setSubmitIsDisabled] = React.useState(true);
 
     function reducer(state, action) {
         switch (action.type) {
@@ -39,7 +40,7 @@ function CreateAccountForm({setCreatingAccount, userContext, setUserContext}) {
     }
 
     function isThereAnyFormError() {
-        return Object.values(state.errors).some(error => error !== "");
+        return !Object.values(state.errors).some(error => error !== "");
     }
 
     function validateField(fieldName, value) {
@@ -96,8 +97,9 @@ function CreateAccountForm({setCreatingAccount, userContext, setUserContext}) {
             <h1 className="card-title mb-3 text-center">Create Account</h1>
             <form className="form" style={{width: "350px", margin: "auto"}} onSubmit={handleSubmitForm}>
                 <div className="form-group">
-                    <label className="fw-bold">Username</label>
+                    <label className="fw-bold" aria-labelledby="username">Username</label>
                     <input type="text"
+                           data-testid="username-input"
                            className="form-control"
                            name="username"
                            value={state.username}
@@ -111,6 +113,7 @@ function CreateAccountForm({setCreatingAccount, userContext, setUserContext}) {
                 <div className="form-group">
                     <label className="fw-bold">Email</label>
                     <input type="text"
+                           data-testid="email-input"
                            className="form-control"
                            name="email"
                            value={state.email}
@@ -123,6 +126,7 @@ function CreateAccountForm({setCreatingAccount, userContext, setUserContext}) {
                 <div className="form-group">
                     <label className="fw-bold">Password</label>
                     <input type="password"
+                           data-testid="password-input"
                            className="form-control"
                            name="password"
                            value={state.password}
@@ -133,8 +137,11 @@ function CreateAccountForm({setCreatingAccount, userContext, setUserContext}) {
                     {state.errors["password"] ?
                         <p className="fs-8 fw-light text-danger">{state.errors["password"]}</p> : ""}
                 </div>
-                <button disabled={isThereAnyFormError()} type="submit" className="btn btn-primary">Create
-                                                                                                   Account
+                <button disabled={(!isThereAnyFormError() || state.name === "" || state.email === "" || state.password === "")}
+                        data-testid="create-account-button"
+                        type="submit"
+                        className="btn btn-primary">Create
+                                                    Account
                 </button>
             </form>
         </div>

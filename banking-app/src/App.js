@@ -8,7 +8,7 @@ import CreateAccount from './components/CreateAccount';
 
 import './App.css';
 
-const UserContext = React.createContext(null);
+const UserContext = React.createContext({currentUser: null, users:[]});
 
 function App() {
     const [currentTabIndex, setCurrentTabIndex] = useState(0);
@@ -35,6 +35,7 @@ function App() {
         },
     ]
     const [userContext, setUserContext] = useState({currentUser: null, users:[]});
+    const value = {userContext, setUserContext};
 
     const handleOnClick = (index) => {
         setCurrentTabIndex(index);
@@ -42,15 +43,16 @@ function App() {
 
     const linkElements = linkElementsData.map((link, i) => {
         return (
-            <li className={"nav-item " + (currentTabIndex === i ? "active" : "")}>
+            <li className={"nav-item " + (window.location.pathname === link.to ? "active" : "")}>
                 <Link className={"nav-link"} onClick={() => handleOnClick(i)} to={link.to}>{link.text}</Link>
             </li>
         )
     })
 
     return (
+
         <div className="container">
-            <UserContext.Provider value={[userContext, setUserContext]}>
+            <UserContext.Provider value={value}>
                 <nav className="justify-content-center py-5">
                     <h1 className="text-center">Banking</h1>
                     <div className="d-flex justify-content-center">

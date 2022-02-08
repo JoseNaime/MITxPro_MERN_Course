@@ -3,8 +3,9 @@ import {UserContext} from '../App'
 import CreateAccountForm from "./CreateAccountForm";
 import UserLoginCard from "./UserLoginCard";
 
+
 function CreateAccount() {
-    const [userContext, setUserContext] = React.useContext(UserContext);
+    const {userContext, setUserContext} = React.useContext(UserContext);
     const [creatingAccount, setCreatingAccount] = React.useState(false);
 
     return (<>
