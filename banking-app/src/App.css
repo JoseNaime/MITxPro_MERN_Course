@@ -17,6 +17,14 @@
   position: relative;
 }
 
+.transition-all-1000ms{
+  transition: all 1s;
+}
+
+.transition-all-500ms{
+  transition: all 0.5s;
+}
+
 #home-img{
   position: relative;
   background-image: url('./img/Bank.jpg');
@@ -38,4 +46,15 @@
   transform: translate(-50%,-50%);
   background: rgba(255,255,255,0.6);
   backdrop-filter: blur(5px);
+}
+
+#user-login-cards-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.form div{
+  margin-bottom: 15px;
 }
