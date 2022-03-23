@@ -16,7 +16,7 @@ function CreateAccount() {
                     <h1 className="card-title mb-3">Create Account</h1>
                     <h5 className="card-subtitle mb-4">Currently loged
                                                        in: {userContext.users[userContext.currentUser].username}</h5>
-                    <button className="btn btn-primary mb-3" onClick={() => setCreatingAccount(true)}>Create Other Account
+                    <button className="btn btn-primary mb-3" onClick={() => setCreatingAccount(true)}>Create Another Account
                     </button>
                 </div>
             </div>

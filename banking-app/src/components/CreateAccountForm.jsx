@@ -98,7 +98,7 @@ function CreateAccountForm({setCreatingAccount, userContext, setUserContext}) {
             <form className="form" style={{width: "350px", margin: "auto"}} onSubmit={handleSubmitForm}>
                 <div className="form-group">
                     <label className="fw-bold" aria-labelledby="username">Username</label>
-                    <input type="text"
+                    <input type="name"
                            data-testid="username-input"
                            className="form-control"
                            name="username"
